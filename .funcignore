@@ -1,0 +1,48 @@
+# =============================================================================
+# Azure Functions publish exclude list
+# Patterns follow .gitignore rules. Deployed package MUST include:
+#   function_app.py, host.json, requirements.txt, additional_asset/** (incl. prompts/md/*.md)
+# Do NOT use a blanket *.md — prompt templates under additional_asset/prompts/md/ are required at runtime.
+# =============================================================================
+
+# Local / IDE / VCS
+.venv/
+venv/
+.env
+.env.*
+.vscode/
+.idea/
+.git/
+.gitignore
+.DS_Store
+Thumbs.db
+
+# Secrets & local-only settings (Azure App Settings supply these in cloud)
+local.settings.json
+local.settings.sample.json
+
+# Dev tooling (not needed at runtime; Azure installs from requirements.txt)
+tests/
+dev-requirements.txt
+pyproject.toml
+README.md
+.funcignore
+
+# Caches, coverage, packaging
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.egg-info/
+dist/
+build/
+.azure/
+
+# Local debug log output
+debug/
+*.log
